@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set body_class = "app-page shop-page" %}
+
+{% block content %}
+<section id="shop-app" class="shop-shell" data-username="{{ user.username }}">
+    <script id="shop-data" type="application/json">{{ user_public | tojson }}</script>
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">Tienda</p>
+            <h1>Objetos</h1>
+        </div>
+        <div class="coin-counter" aria-live="polite">
+            <span class="coin-dot"></span>
+            <strong data-role="coins">{{ user.coins }}</strong>
+        </div>
+    </div>
+
+    <div class="shop-grid">
+        {% for item in items %}
+        <article class="shop-item" data-item="{{ item.id }}" data-price="{{ item.price }}">
+            <img src="{{ url_for('static', path='images/' ~ item.image) }}" alt="{{ item.name }}">
+            <div>
+                <h2>{{ item.name }}</h2>
+                <p>{{ item.description }}</p>
+            </div>
+            <div class="shop-buy-row">
+                <span><strong>{{ item.price }}</strong> monedas</span>
+                <button class="primary-button buy-button" type="button" data-item-id="{{ item.id }}">Comprar</button>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    <p id="shop-message" class="shop-message" aria-live="polite"></p>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='js/shop.js') }}" defer></script>
+{% endblock %}

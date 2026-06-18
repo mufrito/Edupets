@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% set body_class = "app-page pet-page" %}
+
+{% block content %}
+<section id="pet-app" class="pet-shell" data-username="{{ user.username }}">
+    <script id="pet-data" type="application/json">{{ user_public | tojson }}</script>
+
+    <div class="pet-header">
+        <div>
+            <p class="eyebrow">Mascota</p>
+            <h1>Tu compañero</h1>
+        </div>
+        <div class="coin-counter" aria-live="polite">
+            <span class="coin-dot"></span>
+            <strong data-role="coins">{{ user.coins }}</strong>
+        </div>
+    </div>
+
+    <div class="stats-row" aria-label="Estado de la mascota">
+        <div class="stat-orb stat-happiness" data-stat="happiness" style="--value: {{ user.happiness }}">
+            <img src="{{ url_for('static', path='images/felicidad.png') }}" alt="Felicidad">
+            <span data-stat-value="happiness">{{ user.happiness }}%</span>
+        </div>
+        <div class="stat-orb stat-food" data-stat="food" style="--value: {{ user.food }}">
+            <img src="{{ url_for('static', path='images/comida.png') }}" alt="Comida">
+            <span data-stat-value="food">{{ user.food }}%</span>
+        </div>
+        <div class="stat-orb stat-sleep" data-stat="sleep" style="--value: {{ user.sleep }}">
+            <img src="{{ url_for('static', path='images/sueno.png') }}" alt="Sueño">
+            <span data-stat-value="sleep">{{ user.sleep }}%</span>
+        </div>
+    </div>
+
+    <div class="pet-stage">
+        <img class="pet-image" src="{{ url_for('static', path='images/pet.png') }}" alt="Mascota virtual">
+    </div>
+
+    <div class="pet-name-panel">
+        <label for="pet-name">Nombre</label>
+        <input id="pet-name" type="text" maxlength="30" value="{{ user.pet_name }}" autocomplete="off">
+        <span class="save-status" data-role="name-status" aria-live="polite"></span>
+    </div>
+
+    <details class="tasks-panel" open>
+        <summary>Objetivos</summary>
+        <div id="tasks-list" class="tasks-list"></div>
+    </details>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='js/pet.js') }}" defer></script>
+{% endblock %}

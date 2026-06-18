@@ -1,0 +1,1 @@
+"""Edupets FastAPI application package."""

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% set body_class = "app-page activities-page" %}
+
+{% block content %}
+<section id="activities-app" class="activities-shell" data-username="{{ user.username }}">
+    <script id="activity-data" type="application/json">{{ user_public | tojson }}</script>
+
+    <div class="page-heading">
+        <div>
+            <p class="eyebrow">Matemáticas</p>
+            <h1>Actividades</h1>
+        </div>
+        <div class="coin-counter" aria-live="polite">
+            <span class="coin-dot"></span>
+            <strong data-role="coins">{{ user.coins }}</strong>
+        </div>
+    </div>
+
+    <div id="level-map" class="level-map"></div>
+
+    <div id="exercise-modal" class="exercise-modal" hidden>
+        <div class="exercise-panel" role="dialog" aria-modal="true" aria-labelledby="exercise-title">
+            <div class="exercise-topline">
+                <h2 id="exercise-title"></h2>
+                <div id="lives-row" class="lives-row" aria-label="Vidas"></div>
+            </div>
+            <div id="exercise-progress" class="exercise-progress"></div>
+            <p id="question-text" class="question-text"></p>
+            <div id="answer-options" class="answer-options"></div>
+            <p id="exercise-feedback" class="exercise-feedback" aria-live="polite"></p>
+            <button id="close-exercise" class="secondary-button" type="button">Cerrar</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', path='js/activities.js') }}" defer></script>
+{% endblock %}

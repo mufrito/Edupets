@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ request.state.csrf_token }}">
+    <title>{{ title or "Edupets" }}</title>
+    <link rel="icon" href="{{ url_for('static', path='images/logo.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body class="{{ body_class | default('') }}">
+    <header class="topbar">
+        <a class="brand" href="/">
+            <img src="{{ url_for('static', path='images/logo.png') }}" alt="Edupets">
+            <span>Edupets</span>
+        </a>
+        <nav class="main-nav" aria-label="Principal">
+            {% if request.state.username %}
+                <a href="/pet">Mascota</a>
+                <a href="/activities">Actividades</a>
+                <a href="/shop">Tienda</a>
+                <form class="logout-form" method="post" action="/logout">
+                    <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+                    <input type="hidden" name="happiness" data-logout-field="happiness">
+                    <input type="hidden" name="food" data-logout-field="food">
+                    <input type="hidden" name="sleep" data-logout-field="sleep">
+                    <input type="hidden" name="pet_name" data-logout-field="pet_name">
+                    <button class="nav-button" type="submit">Salir</button>
+                </form>
+            {% else %}
+                <a href="/login">Iniciar sesión</a>
+                <a class="nav-button" href="/register">Registrarse</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', path='js/app.js') }}" defer></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

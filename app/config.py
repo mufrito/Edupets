@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     COOKIE_SECURE: bool = False
     CSRF_COOKIE_NAME: str = "edupets_csrf"
 
-    GOOGLE_SHEET_ID: str = "1bRR_985w1aFByMg1GDAAaKnYPOWbqajbYD8btE7zC1k"
+    GOOGLE_SHEET_ID: str = "1PLOtpKWiyxJLtEjQjkxQZYVtydn00eSwmpliR8aXPVw"
     GOOGLE_SHEET_NAME: str = "Hoja 1"
     GOOGLE_SERVICE_ACCOUNT_FILE: str | None = None
     GOOGLE_SERVICE_ACCOUNT_INFO: str | None = None

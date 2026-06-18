@@ -36,7 +36,7 @@ vercel.json
 Hoja usada por defecto:
 
 ```text
-https://docs.google.com/spreadsheets/d/1bRR_985w1aFByMg1GDAAaKnYPOWbqajbYD8btE7zC1k/edit
+https://docs.google.com/spreadsheets/d/1PLOtpKWiyxJLtEjQjkxQZYVtydn00eSwmpliR8aXPVw/edit
 ```
 
 Columnas principales:
@@ -113,7 +113,7 @@ http://127.0.0.1:8000
 APP_ENV=production
 SECRET_KEY=un-valor-largo-y-aleatorio
 COOKIE_SECURE=true
-GOOGLE_SHEET_ID=1bRR_985w1aFByMg1GDAAaKnYPOWbqajbYD8btE7zC1k
+GOOGLE_SHEET_ID=1PLOtpKWiyxJLtEjQjkxQZYVtydn00eSwmpliR8aXPVw
 GOOGLE_SHEET_NAME=Hoja 1
 GOOGLE_SERVICE_ACCOUNT_INFO=<contenido completo del JSON de la cuenta de servicio>
 ```

@@ -90,7 +90,7 @@ Utilizar Google Sheets como almacenamiento.
 
 URL:
 
-https://docs.google.com/spreadsheets/d/1bRR_985w1aFByMg1GDAAaKnYPOWbqajbYD8btE7zC1k/edit
+https://docs.google.com/spreadsheets/d/1PLOtpKWiyxJLtEjQjkxQZYVtydn00eSwmpliR8aXPVw/edit
 
 Columnas:
 
